@@ -28,14 +28,17 @@ namespace website.Models
         [Required(ErrorMessage = "Lütfen cinsiyet seçiniz")]
         public string passengerGender { get; set; }
 
+        [Display(Name = "Yolcu sayısı:")]
+        public string passengerNum { get; set; }// bilet sayisi
 
-        public string passengerNum { get; set; }
 
+        [Display(Name = "TC Numarası:")]
         [StringLength(11, ErrorMessage = "Lütfen geçerli bir numara giriniz ")]
         [Required(ErrorMessage = " Kimlik numarası alanı zorunludur.")]
-        public string TCNumber { get; set; }
+        public string TCNum { get; set; }
 
 
+        [Display(Name = "Passport Numarası:")]
         [Required(ErrorMessage = "Passport Numarası alanı zorunludur.")]
         [RegularExpression(@"^[A-PR-WY][1-9]\d\s?\d{3}[1-9]$", ErrorMessage = "Geçersiz pasaport numarası.")]
         public string PassportNum { get; set; }

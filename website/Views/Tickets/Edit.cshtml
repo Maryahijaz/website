@@ -15,13 +15,23 @@
             <input type="hidden" asp-for="TicketId" />
             <div class="form-group">
                 <label asp-for="PassengerId" class="control-label"></label>
-                <input asp-for="PassengerId" class="form-control" />
+                <select asp-for="PassengerId" class="form-control" asp-items="ViewBag.PassengerId"></select>
                 <span asp-validation-for="PassengerId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FlightID" class="control-label"></label>
-                <input asp-for="FlightID" class="form-control" />
-                <span asp-validation-for="FlightID" class="text-danger"></span>
+                <label asp-for="FlightId" class="control-label"></label>
+                <select asp-for="FlightId" class="form-control" asp-items="ViewBag.FlightId"></select>
+                <span asp-validation-for="FlightId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TicketNum" class="control-label"></label>
+                <input asp-for="TicketNum" class="form-control" />
+                <span asp-validation-for="TicketNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeatNum" class="control-label"></label>
+                <input asp-for="SeatNum" class="form-control" />
+                <span asp-validation-for="SeatNum" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

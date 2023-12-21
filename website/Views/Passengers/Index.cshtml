@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.TicketNum)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.PassengerName)
             </th>
             <th>
@@ -28,7 +31,10 @@
                 @Html.DisplayNameFor(model => model.passengerNum)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TCNumber)
+                @Html.DisplayNameFor(model => model.TCNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportNum)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.UserMail)
@@ -42,6 +48,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketNum)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PassengerName)
             </td>
@@ -58,7 +67,10 @@
                 @Html.DisplayFor(modelItem => item.passengerNum)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TCNumber)
+                @Html.DisplayFor(modelItem => item.TCNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportNum)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UserMail)

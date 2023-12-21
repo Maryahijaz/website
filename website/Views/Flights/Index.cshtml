@@ -16,6 +16,12 @@
                 @Html.DisplayNameFor(model => model.FlightNum)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.FlightCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightTime)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.PassengerNum)
             </th>
             <th>
@@ -23,6 +29,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FlightDepartue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightCompany)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FlightDepartueDate)
@@ -42,9 +51,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.BusinessClass)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SeatNum)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -55,6 +61,12 @@
                 @Html.DisplayFor(modelItem => item.FlightNum)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.FlightCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightTime)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.PassengerNum)
             </td>
             <td>
@@ -62,6 +74,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FlightDepartue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightCompany)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FlightDepartueDate)
@@ -80,9 +95,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BusinessClass)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SeatNum)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.FlightId">Edit</a> |

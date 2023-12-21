@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using website.Data;
 using website.Models;
 
@@ -13,9 +12,9 @@ namespace website.Controllers
 {
     public class TicketsController : Controller
     {
-        private readonly Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public TicketsController(Data.ApplicationDbContext context)
+        public TicketsController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -23,9 +22,8 @@ namespace website.Controllers
         // GET: Tickets
         public async Task<IActionResult> Index()
         {
-              return _context.Ticket != null ? 
-                          View(await _context.Ticket.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Ticket'  is null.");
+            var applicationDbContext = _context.Ticket.Include(t => t.FlightInformation).Include(t => t.PassengerInformation);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Tickets/Details/5
@@ -37,6 +35,8 @@ namespace website.Controllers
             }
 
             var ticket = await _context.Ticket
+                .Include(t => t.FlightInformation)
+                .Include(t => t.PassengerInformation)
                 .FirstOrDefaultAsync(m => m.TicketId == id);
             if (ticket == null)
             {
@@ -49,6 +49,8 @@ namespace website.Controllers
         // GET: Tickets/Create
         public IActionResult Create()
         {
+            ViewData["FlightId"] = new SelectList(_context.Flight, "FlightId", "FlightId");
+            ViewData["PassengerId"] = new SelectList(_context.Passenger, "PassengerId", "PassengerName");
             return View();
         }
 
@@ -57,7 +59,7 @@ namespace website.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TicketId,PassengerId,FlightID")] Ticket ticket)
+        public async Task<IActionResult> Create([Bind("TicketId,PassengerId,FlightId,TicketNum,SeatNum")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -65,6 +67,8 @@ namespace website.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FlightId"] = new SelectList(_context.Flight, "FlightId", "FlightId", ticket.FlightId);
+            ViewData["PassengerId"] = new SelectList(_context.Passenger, "PassengerId", "PassengerName", ticket.PassengerId);
             return View(ticket);
         }
 
@@ -81,6 +85,8 @@ namespace website.Controllers
             {
                 return NotFound();
             }
+            ViewData["FlightId"] = new SelectList(_context.Flight, "FlightId", "FlightId", ticket.FlightId);
+            ViewData["PassengerId"] = new SelectList(_context.Passenger, "PassengerId", "PassengerName", ticket.PassengerId);
             return View(ticket);
         }
 
@@ -89,7 +95,7 @@ namespace website.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TicketId,PassengerId,FlightID")] Ticket ticket)
+        public async Task<IActionResult> Edit(int id, [Bind("TicketId,PassengerId,FlightId,TicketNum,SeatNum")] Ticket ticket)
         {
             if (id != ticket.TicketId)
             {
@@ -116,6 +122,8 @@ namespace website.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FlightId"] = new SelectList(_context.Flight, "FlightId", "FlightId", ticket.FlightId);
+            ViewData["PassengerId"] = new SelectList(_context.Passenger, "PassengerId", "PassengerName", ticket.PassengerId);
             return View(ticket);
         }
 
@@ -128,6 +136,8 @@ namespace website.Controllers
             }
 
             var ticket = await _context.Ticket
+                .Include(t => t.FlightInformation)
+                .Include(t => t.PassengerInformation)
                 .FirstOrDefaultAsync(m => m.TicketId == id);
             if (ticket == null)
             {

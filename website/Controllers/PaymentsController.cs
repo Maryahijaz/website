@@ -12,9 +12,9 @@ namespace website.Controllers
 {
     public class PaymentsController : Controller
     {
-        private readonly Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public PaymentsController(Data.ApplicationDbContext context)
+        public PaymentsController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -56,7 +56,7 @@ namespace website.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PaymentId,CardId,TotalAmount,CardType,CardDate,CVV")] Payment payment)
+        public async Task<IActionResult> Create([Bind("PaymentId,CardId,TotalAmount,CardDate,CVV")] Payment payment)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace website.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PaymentId,CardId,TotalAmount,CardType,CardDate,CVV")] Payment payment)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentId,CardId,TotalAmount,CardDate,CVV")] Payment payment)
         {
             if (id != payment.PaymentId)
             {

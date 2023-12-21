@@ -12,9 +12,9 @@ namespace website.Controllers
 {
     public class PassengersController : Controller
     {
-        private readonly Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public PassengersController(Data.ApplicationDbContext context)
+        public PassengersController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -56,13 +56,13 @@ namespace website.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PassengerId,PassengerName,PassengerSurname,Birthday,passengerGender,passengerNum,TCNumber,UserMail,UserPhone")] Passenger passenger)
+        public async Task<IActionResult> Create([Bind("PassengerId,TicketNum,PassengerName,PassengerSurname,Birthday,passengerGender,passengerNum,TCNum,PassportNum,UserMail,UserPhone")] Passenger passenger)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(passenger);
                 await _context.SaveChangesAsync();
-                TempData["onayMesaji"] = "Bilgileriniz başarıla kaydoldu ";
+                TempData["onayMesaji"] = "Işleminiz başarıyla gerçekleşti";
                 return RedirectToAction(nameof(Create));
             }
             return View(passenger);
@@ -89,7 +89,7 @@ namespace website.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PassengerId,PassengerName,PassengerSurname,Birthday,passengerGender,passengerNum,TCNumber,UserMail,UserPhone")] Passenger passenger)
+        public async Task<IActionResult> Edit(int id, [Bind("PassengerId,TicketNum,PassengerName,PassengerSurname,Birthday,passengerGender,passengerNum,TCNum,PassportNum,UserMail,UserPhone")] Passenger passenger)
         {
             if (id != passenger.PassengerId)
             {

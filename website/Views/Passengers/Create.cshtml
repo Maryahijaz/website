@@ -13,6 +13,11 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="TicketNum" class="control-label"></label>
+                <input asp-for="TicketNum" class="form-control" />
+                <span asp-validation-for="TicketNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="PassengerName" class="control-label"></label>
                 <input asp-for="PassengerName" class="form-control" />
                 <span asp-validation-for="PassengerName" class="text-danger"></span>
@@ -32,15 +37,20 @@
                 <input asp-for="passengerGender" class="form-control" />
                 <span asp-validation-for="passengerGender" class="text-danger"></span>
             </div>
-            @* <div class="form-group">
+            <div class="form-group">
                 <label asp-for="passengerNum" class="control-label"></label>
                 <input asp-for="passengerNum" class="form-control" />
                 <span asp-validation-for="passengerNum" class="text-danger"></span>
-            </div> *@
+            </div>
             <div class="form-group">
-                <label asp-for="TCNumber" class="control-label"></label>
-                <input asp-for="TCNumber" class="form-control" />
-                <span asp-validation-for="TCNumber" class="text-danger"></span>
+                <label asp-for="TCNum" class="control-label"></label>
+                <input asp-for="TCNum" class="form-control" />
+                <span asp-validation-for="TCNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassportNum" class="control-label"></label>
+                <input asp-for="PassportNum" class="form-control" />
+                <span asp-validation-for="PassportNum" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="UserMail" class="control-label"></label>
@@ -59,13 +69,13 @@
         </form>
     </div>
     <br />
-<h5 style="color:blue;">@TempData["onayMesaji"]</h5>
+    <h5 style="color:blue;">@TempData["onayMesaji"]</h5>
 </div>
 
 @* <div>
     <a asp-action="Index">Back to List</a>
-</div>
- *@
+</div> *@
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

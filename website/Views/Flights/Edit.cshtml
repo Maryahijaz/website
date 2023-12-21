@@ -19,6 +19,16 @@
                 <span asp-validation-for="FlightNum" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="FlightCapacity" class="control-label"></label>
+                <input asp-for="FlightCapacity" class="form-control" />
+                <span asp-validation-for="FlightCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightTime" class="control-label"></label>
+                <input asp-for="FlightTime" class="form-control" />
+                <span asp-validation-for="FlightTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="PassengerNum" class="control-label"></label>
                 <input asp-for="PassengerNum" class="form-control" />
                 <span asp-validation-for="PassengerNum" class="text-danger"></span>
@@ -32,6 +42,11 @@
                 <label asp-for="FlightDepartue" class="control-label"></label>
                 <input asp-for="FlightDepartue" class="form-control" />
                 <span asp-validation-for="FlightDepartue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightCompany" class="control-label"></label>
+                <input asp-for="FlightCompany" class="form-control" />
+                <span asp-validation-for="FlightCompany" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FlightDepartueDate" class="control-label"></label>
@@ -62,11 +77,6 @@
                 <label asp-for="BusinessClass" class="control-label"></label>
                 <input asp-for="BusinessClass" class="form-control" />
                 <span asp-validation-for="BusinessClass" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SeatNum" class="control-label"></label>
-                <input asp-for="SeatNum" class="form-control" />
-                <span asp-validation-for="SeatNum" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

@@ -14,6 +14,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="PassengerId" />
             <div class="form-group">
+                <label asp-for="TicketNum" class="control-label"></label>
+                <input asp-for="TicketNum" class="form-control" />
+                <span asp-validation-for="TicketNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="PassengerName" class="control-label"></label>
                 <input asp-for="PassengerName" class="form-control" />
                 <span asp-validation-for="PassengerName" class="text-danger"></span>
@@ -39,9 +44,14 @@
                 <span asp-validation-for="passengerNum" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TCNumber" class="control-label"></label>
-                <input asp-for="TCNumber" class="form-control" />
-                <span asp-validation-for="TCNumber" class="text-danger"></span>
+                <label asp-for="TCNum" class="control-label"></label>
+                <input asp-for="TCNum" class="form-control" />
+                <span asp-validation-for="TCNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassportNum" class="control-label"></label>
+                <input asp-for="PassportNum" class="form-control" />
+                <span asp-validation-for="PassportNum" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="UserMail" class="control-label"></label>

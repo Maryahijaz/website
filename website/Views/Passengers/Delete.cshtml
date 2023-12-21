@@ -12,6 +12,12 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TicketNum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TicketNum)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PassengerName)
         </dt>
         <dd class = "col-sm-10">
@@ -42,10 +48,16 @@
             @Html.DisplayFor(model => model.passengerNum)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TCNumber)
+            @Html.DisplayNameFor(model => model.TCNum)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TCNumber)
+            @Html.DisplayFor(model => model.TCNum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PassportNum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PassportNum)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.UserMail)

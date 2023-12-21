@@ -7,15 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using website.Data;
 using website.Models;
-using Flight = website.Models.Flight;
 
 namespace website.Controllers
 {
     public class FlightsController : Controller
     {
-        private readonly Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public FlightsController( Data.ApplicationDbContext context)
+        public FlightsController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -57,7 +56,7 @@ namespace website.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FlightId,FlightNum,PassengerNum,FlightDestination,FlightDepartue,FlightDepartueDate,FlightDestinationDate,FlightDestinationTime,FlightDepartueTime,EconomyClass,BusinessClass,SeatNum")] Flight flight)
+        public async Task<IActionResult> Create([Bind("FlightId,FlightNum,FlightCapacity,FlightTime,PassengerNum,FlightDestination,FlightDepartue,FlightCompany,FlightDepartueDate,FlightDestinationDate,FlightDestinationTime,FlightDepartueTime,EconomyClass,BusinessClass")] Flight flight)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +88,7 @@ namespace website.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FlightId,FlightNum,PassengerNum,FlightDestination,FlightDepartue,FlightDepartueDate,FlightDestinationDate,FlightDestinationTime,FlightDepartueTime,EconomyClass,BusinessClass,SeatNum")] Flight flight)
+        public async Task<IActionResult> Edit(int id, [Bind("FlightId,FlightNum,FlightCapacity,FlightTime,PassengerNum,FlightDestination,FlightDepartue,FlightCompany,FlightDepartueDate,FlightDestinationDate,FlightDestinationTime,FlightDepartueTime,EconomyClass,BusinessClass")] Flight flight)
         {
             if (id != flight.FlightId)
             {
