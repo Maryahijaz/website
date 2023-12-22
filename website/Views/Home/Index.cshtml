@@ -2,19 +2,23 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+@* <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+</div> *@
 <!-- Add this code to your view -->
 <div id="carouselExample" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="img1.jpg" alt="First slide">
+            <img class="d-block w-100" src="~/img/img1.jpg" alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="" alt="Second slide">
+            <img class="d-block w-100" src="~/img/img2.jpg" alt="Second slide">
         </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="" alt="Theerd slide">
+        </div>
+
         <!-- Add more slides as needed -->
     </div>
     <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
