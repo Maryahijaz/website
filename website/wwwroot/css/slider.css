@@ -1,0 +1,14 @@
+﻿
+body{
+#carouselExample {
+    height: 500px; /* Set your desired height */
+    width:contain;
+}
+
+.carousel-inner {
+    height: 500px; /* Set your desired height */
+}
+img {
+    max-height: 500px;
+}
+}
